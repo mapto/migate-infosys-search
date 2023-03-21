@@ -1,0 +1,92 @@
+enum Country {
+    UNITED_STATES,
+    UNITED_KINGDOM,
+    GERMANY,
+    AUSTRIA,
+    SWITZERLAND,
+    FRANCE,
+    ITALY,
+    SPAIN,
+    RUSSIA,
+    OTHER,
+    UNSPECIFIED
+}
+
+enum Language {
+    ENGLISH,
+    SPANISH,
+    FRENCH,
+    RUSSIAN,
+    GERMAN,
+    ITALIAN,
+    OTHER,
+    UNSPECIFIED
+}
+
+enum Gender {
+    MALE,
+    FEMALE,
+    OTHER,
+    UNSPECIFIED
+}
+
+entity Person {
+    name String required
+    gender Gender
+    dob LocalDate
+    dod LocalDate
+    country Country
+    language Language
+}
+
+entity Institution {
+    name String required
+    country Country
+}
+
+entity WorkGroup {
+	name String required
+}
+
+// actually piece of work, product
+entity Work {
+    name String required
+    published LocalDate
+}
+
+entity Role{
+    name String required
+    start LocalDate
+    end LocalDate
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+    address String required
+    country Country
+}
+
+relationship OneToMany {
+    Location{owner(name)} to Institution{site(address)}
+}
+
+relationship ManyToOne {
+    WorkGroup{work(name)} to Work{collection(name)}
+}
+
+relationship ManyToMany {
+    Person{work(name)} to Work{responsible(name)}
+    Work{sponsor(name)} to Institution{product(name)}
+
+    Person{job(name)} to Role{person(name)}
+    Institution{institutionRoleName(name)} to Role{institutionName(name)}
+
+    Person{responsibility(name)} to Role{person(name)}
+    Work{workRoleName(name)} to Role{workName(name)}
+}
+
+dto all with mapstruct
+filter all
+search all with elasticsearch
+paginate all with infinite-scroll
