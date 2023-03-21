@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20230321093739",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "work",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "published",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Work",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "institution",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": true,
+      "relationshipName": "sponsor",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "workName",
+      "ownerSide": true,
+      "relationshipName": "workRoleName",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "workGroup",
+      "otherEntityRelationshipName": "work",
+      "relationshipName": "collection",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "work",
+      "ownerSide": false,
+      "relationshipName": "responsible",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}
