@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323093115",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "institution",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "Country",
+      "fieldValues": "UNITED_STATES,UNITED_KINGDOM,GERMANY,AUSTRIA,SWITZERLAND,FRANCE,ITALY,SPAIN,RUSSIA,OTHER,UNSPECIFIED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Institution",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "address",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "site",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "sponsor",
+      "relationshipName": "position",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}
