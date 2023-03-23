@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323091702",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "role",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "start",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "end",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Role",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "institution",
+      "otherEntityRelationshipName": "position",
+      "relationshipName": "sponsor",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "person",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "work",
+      "otherEntityRelationshipName": "responsibility",
+      "relationshipName": "product",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}

@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323091701",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "work",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "published",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Work",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "workGroup",
+      "otherEntityRelationshipName": "work",
+      "relationshipName": "collection",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "responsibility",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}

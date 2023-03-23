@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323091658",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "person",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE,OTHER,UNSPECIFIED"
+    },
+    {
+      "fieldName": "dob",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dod",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "Country",
+      "fieldValues": "UNITED_STATES,UNITED_KINGDOM,GERMANY,AUSTRIA,SWITZERLAND,FRANCE,ITALY,SPAIN,RUSSIA,OTHER,UNSPECIFIED"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "Language",
+      "fieldValues": "ENGLISH,SPANISH,FRENCH,RUSSIAN,GERMAN,ITALIAN,OTHER,UNSPECIFIED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Person",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "role",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "job",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceClass"
+}
